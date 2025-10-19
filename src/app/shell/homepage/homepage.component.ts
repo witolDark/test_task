@@ -1,12 +1,8 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {ArticleService} from '../../shared/services/article/article.service';
-import {Select, Store} from '@ngxs/store';
-import {GetArticles, SetOffset} from '../../shared/store/articles.actions';
+import {Store} from '@ngxs/store';
+import {GetArticles} from '../../shared/store/articles.actions';
 import {ArticlesState} from '../../shared/store/articles.store';
-import {IArticle} from '../../shared/models/article.model';
-import {Observable, Subject, takeUntil, withLatestFrom} from 'rxjs';
-import {SharedModule} from '../../shared/shared-module';
-import {ENTITIES_PER_PAGE} from '../../shared/constants';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-homepage',

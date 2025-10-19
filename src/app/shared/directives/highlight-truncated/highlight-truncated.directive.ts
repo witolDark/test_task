@@ -1,11 +1,11 @@
-import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef} from '@angular/core';
 
 @Directive({
   selector: '[appHighlightTruncated]'
 })
 export class HighlightTruncatedDirective implements AfterViewInit {
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+  constructor(private el: ElementRef) {
   }
 
   ngAfterViewInit() {
