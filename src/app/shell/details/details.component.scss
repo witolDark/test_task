@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.cover {
+  height: 245px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.absolute {
+  position: absolute;
+  top: 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding-bottom: 50px;
+}
+
+.details {
+  padding: 35px 75px;
+  margin: 75px 75px 0 75px;
+  top: 95px;
+  background: #fff;
+  box-sizing: border-box;
+  border: $card-border;
+  border-radius: 5px;
+
+  &-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+  }
+
+  &-description {
+    margin-top: 50px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 150%;
+  margin-left: 150px;
+
+  .mat-icon {
+    height: 10px;
+    width: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

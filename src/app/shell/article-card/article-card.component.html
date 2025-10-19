@@ -1,0 +1,19 @@
+<mat-card class="card">
+  <mat-card-header>
+    <img [src]="article.image_url" width="400" height="217" alt="article cover image" loading="lazy"/>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="date">
+      <mat-icon svgIcon="calendar"></mat-icon>
+      <span>{{ article.published_at | date:'mediumDate' }}</span>
+    </div>
+    <div class="title" appHighlightTruncated [innerHTML]=" article.title | highlightKeyword: keywords">
+    </div>
+    <div class="description" appHighlightTruncated [innerHTML]="article.summary | highlightKeyword: keywords | textLength">
+    </div>
+    <div class="details-btn" tabindex="0" role="button" [routerLink]="['/details', article.id]">
+      <span>Read more</span>
+      <mat-icon svgIcon="arrow"></mat-icon>
+    </div>
+  </mat-card-content>
+</mat-card>

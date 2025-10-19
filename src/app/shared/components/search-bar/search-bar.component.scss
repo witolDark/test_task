@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+.search-bar {
+  font-family: 'Montserrat', sans-serif;
+  height: 50px;
+  width: 600px;
+
+  .mat-icon {
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0 20px;
+  }
+}
+
+:host ::ng-deep .search-bar {
+  .mat-mdc-text-field-wrapper {
+    box-shadow: 0 8px 24px 0 #0000000D;
+    border-radius: 5px;
+  }
+
+  .mat-mdc-form-field-icon-prefix {
+    padding: 0;
+  }
+
+  .mat-mdc-notch-piece {
+    --mat-sys-on-surface: $border-color;
+
+    &.mdc-notched-outline__leading,
+    &.mdc-notched-outline__leading:hover,
+    &.mdc-notched-outline__trailing,
+    &.mdc-notched-outline__trailing:hover {
+      border: 1px solid $border-color;
+    }
+
+    &.mdc-notched-outline__leading {
+      border-radius: 5px 0 0 5px;
+      border-right: none;
+    }
+    &.mdc-notched-outline__trailing {
+      border-radius: 0 5px 5px 0;
+      border-left: none;
+    }
+  }
+}

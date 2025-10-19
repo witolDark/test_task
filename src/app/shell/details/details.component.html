@@ -1,0 +1,31 @@
+<ng-container *ngIf="isLoading$ | async; else content">
+  <mat-spinner></mat-spinner>
+</ng-container>
+<ng-template #content>
+  <ng-container *ngIf="selectedArticle$ | async as article; else noContent">
+    <div class="container">
+      <div class="cover">
+        <img [src]="article.image_url"/>
+      </div>
+      <div class="absolute">
+        <div class="details">
+          <h1 class="details-title">
+            {{ article.title }}
+          </h1>
+          <article class="details-description">
+            {{ article.summary }}
+          </article>
+        </div>
+        <div class="back-btn" tabindex="0" role="button" routerLink="/">
+          <mat-icon svgIcon="arrow" style="transform: scaleX(-1)"></mat-icon>
+          <span>Back to homepage</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+<ng-template #noContent>
+  <div>
+    No content
+  </div>
+</ng-template>

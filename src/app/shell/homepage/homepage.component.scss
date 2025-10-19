@@ -1,0 +1,41 @@
+@use 'variables' as *;
+
+.page {
+  padding: 50px 75px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1rem;
+
+  &-label {
+    font-weight: 600;
+  }
+}
+
+.results {
+  margin-top: 30px;
+
+  &-total {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 600;
+  }
+
+  &-entities {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 45px;
+  }
+}
+
+:host ::ng-deep {
+  .mat-divider {
+    border-color: $border-color;
+  }
+}
