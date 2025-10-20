@@ -33,9 +33,7 @@
     --mat-sys-on-surface: $border-color;
 
     &.mdc-notched-outline__leading,
-    &.mdc-notched-outline__leading:hover,
-    &.mdc-notched-outline__trailing,
-    &.mdc-notched-outline__trailing:hover {
+    &.mdc-notched-outline__trailing {
       border: 1px solid $border-color;
     }
 
