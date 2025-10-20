@@ -29,12 +29,12 @@ export class HighlightTruncatedDirective implements AfterViewInit {
 
       if (!isVisible) {
         const highlightedText = highlighted.textContent || '';
+
         const fullText = container.innerText;
 
         const index = fullText.indexOf(highlightedText);
         const after = fullText.slice(index + highlightedText.length, textContent.length);
-
-        container.innerHTML = `...<span class="highlight">${highlightedText}</span>${after}`;
+        container.innerHTML = `<span class="select-none">...</span><span class="highlight">${highlightedText}</span>${after}`;
       }
     }
   }

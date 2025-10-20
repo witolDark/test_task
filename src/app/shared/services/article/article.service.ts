@@ -14,7 +14,6 @@ export class ArticleService {
   public getArticles(options: { keywords?: string[], limit?: number, searchByDescription?: boolean }) {
     let params = new HttpParams().set('limit', options.limit ? options.limit : ENTITIES_PER_PAGE);
     if (options.keywords?.length) {
-      options.keywords.map((key: string) => encodeURIComponent(key));
       const mappedKeywords = options.keywords.join(',')
       params = params.append(options.searchByDescription ? 'summary_contains_one' : 'title_contains_one', mappedKeywords);
     }

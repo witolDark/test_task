@@ -1,11 +1,13 @@
 <ng-container *ngIf="isLoading$ | async; else content">
-  <mat-spinner></mat-spinner>
+  <div class="full">
+    <mat-spinner></mat-spinner>
+  </div>
 </ng-container>
 <ng-template #content>
   <ng-container *ngIf="selectedArticle$ | async as article; else noContent">
     <div class="container">
       <div class="cover">
-        <img [src]="article.image_url"/>
+        <img [src]="article.image_url" alt="cover image"/>
       </div>
       <div class="absolute">
         <div class="details">

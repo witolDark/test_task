@@ -1,6 +1,6 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {IArticle} from '../models/article.model';
-import {ClearSelectedArticle, GetArticleById, GetArticles, SetSearchKeywords} from './articles.actions';
+import {ClearSelectedArticle, GetArticleById, GetArticles, SetSearchQuery} from './articles.actions';
 import {ArticleService} from '../services/article/article.service';
 import {catchError, concatMap, EMPTY, finalize, of, tap} from 'rxjs';
 import {Injectable} from '@angular/core';
@@ -10,6 +10,7 @@ export interface ArticleStateModel {
   selectedArticle: IArticle | null;
   articles: IArticle[] | null;
   totalArticles: number;
+  searchQuery: string;
   searchKeywords: string[];
   isLoading: boolean;
 }
@@ -20,6 +21,7 @@ export interface ArticleStateModel {
     selectedArticle: null,
     articles: null,
     totalArticles: 0,
+    searchQuery: '',
     searchKeywords: [],
     isLoading: false
   }
@@ -50,13 +52,19 @@ export class ArticlesState {
   }
 
   @Selector()
+  static searchQuery(state: ArticleStateModel) {
+    return state.searchQuery;
+  }
+
+  @Selector()
   static searchKeywords(state: ArticleStateModel) {
     return state.searchKeywords;
   }
 
-  @Action(SetSearchKeywords)
-  setSearchKeywords({dispatch, patchState}: StateContext<ArticleStateModel>, {keywords}: SetSearchKeywords) {
-    patchState({searchKeywords: keywords});
+  @Action(SetSearchQuery)
+  setSearchQuery({dispatch, patchState}: StateContext<ArticleStateModel>, {query}: SetSearchQuery) {
+    const keywords = query.length ? query.split(' ') : [];
+    patchState({searchQuery: query, searchKeywords: keywords});
     dispatch(new GetArticles());
   }
 

@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
-import {debounceTime, map, Subject, takeUntil} from 'rxjs';
+import {debounceTime, Subject, takeUntil} from 'rxjs';
 import {FormControl} from '@angular/forms';
 import {Store} from '@ngxs/store';
-import {SetSearchKeywords} from '../../store/articles.actions';
 import {SEARCH_ICON} from '../../../../assets/icons/icons';
+import {SetSearchQuery} from '../../store/articles.actions';
+import {ArticlesState} from '../../store/articles.store';
 
 @Component({
   selector: 'app-search-bar',
@@ -21,10 +22,9 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.searchControl.valueChanges.pipe(debounceTime(500), map((str: string) => {
-      return str.split(' ');
-    }), takeUntil(this.destroy$)).subscribe(keywords => {
-      this.store.dispatch(new SetSearchKeywords(keywords));
+    this.searchControl.setValue(this.store.selectSnapshot(ArticlesState.searchQuery), {emitEvent: false});
+    this.searchControl.valueChanges.pipe(debounceTime(800), takeUntil(this.destroy$)).subscribe(query => {
+      this.store.dispatch(new SetSearchQuery(query));
     });
   }
 
