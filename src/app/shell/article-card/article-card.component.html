@@ -11,9 +11,9 @@
     </div>
     <div class="description" [innerHTML]="article.summary | highlightKeyword: keywords | textLength">
     </div>
-    <div class="details-btn" tabindex="0" role="button" [routerLink]="['/details', article.id]">
+    <a class="nav-btn" [routerLink]="['/details', article.id]">
       <span>Read more</span>
       <mat-icon svgIcon="arrow"></mat-icon>
-    </div>
+    </a>
   </mat-card-content>
 </mat-card>

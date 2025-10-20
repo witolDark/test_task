@@ -68,22 +68,8 @@
       text-overflow: ellipsis;
     }
 
-    .details-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      cursor: pointer;
+    .nav-btn {
       margin-top: 20px;
-      line-height: 150%;
-
-      .mat-icon {
-        height: 10px;
-        width: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
 }

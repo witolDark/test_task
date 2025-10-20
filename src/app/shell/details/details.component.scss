@@ -56,20 +56,7 @@
   }
 }
 
-.back-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  line-height: 150%;
+.nav-btn {
   margin-left: 150px;
-
-  .mat-icon {
-    height: 10px;
-    width: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
+
